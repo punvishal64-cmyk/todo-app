@@ -22,12 +22,12 @@ function renderNotes() {
             <p>${note.content.substring(0, 100)}</p>
             <small>${time}</small>
             <button class="deleteBtn">Delete</button>
+            <button class="editBtn">Edit</button>
         `;
 
         const deleteBtn = noteDiv.querySelector(".deleteBtn"); // This selects the delete button within the noteDiv so we can add a click event to it.
 
-        deleteBtn.addEventListener("click", function (e) {
-        e.stopPropagation(); // prevents edit click
+        deleteBtn.addEventListener("click", function () {
  
         const confirmDelete = confirm("Delete this note?");  //Asks uder to confirm deletion
         if (!confirmDelete) return;
@@ -43,7 +43,8 @@ function renderNotes() {
         renderNotes();
 });
 
-        noteDiv.addEventListener("click", function () {
+        const editBtn = noteDiv.querySelector(".editBtn");
+        editBtn.addEventListener("click", function () {
         titleInput.value = note.title;
         contentInput.value = note.content;
 
