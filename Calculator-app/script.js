@@ -1,9 +1,6 @@
 const display = document.getElementById("display");
 const buttons = document.querySelectorAll("button");
 
-const historyList = document.getElementById("historyList");
-let history = [];
-
 let expression = "";
 
 buttons.forEach(button => {
@@ -17,14 +14,6 @@ buttons.forEach(button => {
         else if (value === "=") {
             try {
                 const result = evaluateExpression(expression);
-
-                //  Save history
-                const entry = `${expression} = ${result}`;
-                if (result !== undefined) {
-                    history.push(entry);
-                }
-
-                updateHistory();
                 
                 display.value = result;
                 expression = result.toString();
@@ -57,14 +46,6 @@ document.addEventListener("keydown", (e) => {
     } 
     else if (key === "Enter") {
        const result = evaluateExpression(expression);
-
-                //  Save history
-                const entry = `${expression} = ${result}`;
-                if (result !== undefined) {
-                    history.push(entry);
-                }
-
-                updateHistory();
 
                 display.value = result;
                 expression = result.toString();9
@@ -117,12 +98,3 @@ function evaluateExpression(expr) {
     return result;
 }
 
-function updateHistory() {
-    historyList.innerHTML = "";
-
-    history.slice().reverse().forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        historyList.appendChild(li);
-    });
-}

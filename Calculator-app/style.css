@@ -21,32 +21,6 @@ body {
     gap: 30px;
 }
 
-/* HISTORY PANEL */
-.history {
-    width: 200px;
-    background: #1e1e2f;
-    padding: 15px;
-    border-radius: 15px;
-    color: white;
-    overflow-y: auto;
-    max-height: 350px;
-}
-
-.history h3 {
-    margin-top: 0;
-}
-
-#historyList {
-    list-style: none;
-    padding: 0;
-}
-
-#historyList li {
-    padding: 5px;
-    border-bottom: 1px solid #444;
-    font-size: 14px;
-}
-
 /* DISPLAY */
 #display {
     width: 100%;
